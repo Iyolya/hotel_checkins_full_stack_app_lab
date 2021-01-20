@@ -11,6 +11,15 @@ npm remove nodemon (if not installed dev)
 Check .gitignore
 vue create client
 add services folder in src
+    touch services/service.js
+remove auto-generated vue code
+
+## Components
+create components
+
+## Services
+create service with fetch
+test fetch in a component or App.vue
 
 # SERVER
 

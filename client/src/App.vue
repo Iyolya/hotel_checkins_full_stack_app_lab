@@ -1,19 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button v-on:click="bookingServiceTest">Test Fetch</button>
+    <bookings-list v-bind:bookings="bookings"></bookings-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BookingsService from './services/BookingsService.js';
+import BookingsList from './components/BookingsList.vue';
 
 export default {
   name: 'App',
+  data() {
+    return {
+      bookings: [],
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    'bookings-list': BookingsList
+  },
+  methods: {
+    bookingServiceTest() {
+      BookingsService.getBookings().then((bookings) => {
+        this.bookings = bookings;
+      });
+    },
+  },
+};
 </script>
 
 <style>
