@@ -30,3 +30,5 @@ touch db/seeds.js
 touch helpers/create_router.js (possibly more routers for CRUD, plus others)
 touch server.js
 
+## Database
+seeds.js
