@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <booking-form v-on:booking-added="addToBookings"></booking-form>
-    <bookings-list v-bind:bookings="bookings"></bookings-list>
+    <booking-form  v-on:booking-added="addToBookings"  ></booking-form>
+    <button v-on:click="deleteBooking('60084522bc57a0be312c7bfd')"> Test Delete</button>
+    <bookings-list v-bind:bookings="bookings" v-on:booking-delete="deleteBooking"></bookings-list>
   </div>
 </template>
 
@@ -32,7 +33,14 @@ export default {
     },
     addToBookings: function(booking) {
         this.bookings.push(booking)
+    },
+    deleteBooking: function(id) {
+      console.log(id)
+        let index = this.bookings.findIndex(booking => booking._id === id)
+        console.log('id ', id, 'index: ', index)
+        this.bookings.splice(index, 1)
     }
+
   },
 };
 </script>
