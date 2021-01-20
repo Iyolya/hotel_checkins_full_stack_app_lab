@@ -32,3 +32,14 @@ touch server.js
 
 ## Database
 seeds.js
+npm run seeds
+
+## Server
+Imports
+    - app = express()
+    - app.use cors and parser
+    - routers
+
+MongoClient.connect
+
+
