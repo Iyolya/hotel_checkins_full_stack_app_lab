@@ -42,4 +42,11 @@ Imports
 
 MongoClient.connect
 
+## Helpers
+### Create Routers
+Imports
+createRouter function
+    - Define router = express.Router()
+    - Create CRUD routes, starting with get all
+Exports (createRouter)
 
