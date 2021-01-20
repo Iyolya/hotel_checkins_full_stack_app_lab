@@ -1,20 +1,20 @@
 <template>
     <div>
-        <ul>
-            <li v-for="(booking, index) in bookings" :key="index">
-                {{ booking.guestName }} {{booking.email}} - {{ booking.checkedIn }}
-            <button v-on:click="deleteBooking(bookings[index])"> X</button>
-            </li>
-      </ul>
+    
+      <booking-card v-bind:booking="booking" v-for="(booking, index) in bookings" :key="index"></booking-card>
+      
     </div>
 </template>
 
 <script>
 
 import BookingsService from '../services/BookingsService.js';
-
+import BookingCard  from './BookingCard'
     export default {
         name: "BookingsList",
+        components: {
+            'booking-card': BookingCard,
+        },
         props: ['bookings'],
         methods: {
             deleteBooking: function(booking) {
