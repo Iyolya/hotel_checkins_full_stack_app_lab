@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <button v-on:click="bookingServiceTest">Test Fetch</button>
+    <booking-form v-on:booking-added="addToBookings"></booking-form>
     <bookings-list v-bind:bookings="bookings"></bookings-list>
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script>
 import BookingsService from './services/BookingsService.js';
 import BookingsList from './components/BookingsList.vue';
+import BookingForm from './components/BookingForm.vue'
 
 export default {
   name: 'App',
@@ -16,15 +17,22 @@ export default {
       bookings: [],
     };
   },
+  mounted () {
+    this.getData();
+  },
   components: {
-    'bookings-list': BookingsList
+    'bookings-list': BookingsList,
+    'booking-form': BookingForm
   },
   methods: {
-    bookingServiceTest() {
+    getData: function() {
       BookingsService.getBookings().then((bookings) => {
         this.bookings = bookings;
       });
     },
+    addToBookings: function(booking) {
+        this.bookings.push(booking)
+    }
   },
 };
 </script>

@@ -2,7 +2,7 @@
     <div>
         <ul>
             <li v-for="(booking, index) in bookings" :key="index">
-                {{ booking.guestName }} - {{ booking.checkedIn }}
+                {{ booking.guestName }} {{booking.email}} - {{ booking.checkedIn }}
             </li>
       </ul>
     </div>
